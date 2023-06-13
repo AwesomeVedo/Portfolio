@@ -5,10 +5,9 @@ body {
     overflow-x: hidden;
   }
   
-  header {
-    background: #f2f2f2;
-    padding: 20px;
-  }
+  /* header {
+  
+  } */
   
   nav ul {
     list-style: none;
@@ -62,7 +61,6 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    background-color: #dfdfdf;
     padding: 30px;
 }
 
