@@ -4,37 +4,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        Miguel Acevedo's Portfolio
-    </title>
+    <title>Miguel Acevedo's Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://kit.fontawesome.com/405f693282.js" crossorigin="anonymous"></script>
 </head>
 
+
 <body>
     <header>
-        <div class="header-container container">
+        <div class="header-container container animate__animated animate__fadeIn">
             <h2 class="header-title">
                 Miguel Acevedo
             </h2>
             <nav class="header-nav">
                 <ul>
-                    <li><a href="#" data-tab="home-tab"><i class="fa-solid fa-house"></i> Home</a></li>
+                    <li><a href="#" data-tab="home-tab"><i class="fa-solid fa-house"></i> About</a></li>
                     <li><a href="#" data-tab="resume-tab"><i class="fa-solid fa-file"></i> Resume</a></li>
                     <li><a href="#" data-tab="portfolio-tab"><i class="fa-solid fa-rectangle-list"></i> Portfolio</a>
+                    <li style="list-style-type:none;"><a href="#" data-tab="contact-tab">Contact</a></li>
                     </li>
                 </ul>
             </nav>
-            <div style="text-align:right;">
-                <ul>
-                    <li style="list-style-type:none;"><a href="#" data-tab="contact-tab">Contact</a></li>
-                </ul>
-            </div>
 
         </div>
     </header>
 
-    <main>
+    <main class="animate__animated animate__fadeIn">
         <section id="home-tab" class="tab">
             <div class="container">Content of Home Tab</div>
         </section>
@@ -50,7 +49,7 @@
         <!-- Additional sections or divisions of content go here -->
     </section>
 
-    <footer>
+    <footer class="animate__animated animate__fadeIn">
         <div class="footer-columns">
             <div class="footer-column">
                 <!-- Content for the first column -->

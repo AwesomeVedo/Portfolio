@@ -1,4 +1,8 @@
 /* DEFAULTS */
+html, body {
+  font-family: 'Bodoni Moda', serif;
+  color: black;
+}
 body {
     margin: 0;
     padding: 0;
@@ -9,24 +13,26 @@ body {
   
   } */
   
-  /* nav ul {
-    list-style: none;
+  nav ul {
+    /* list-style: none;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
   }
   
   nav ul li {
-    margin-right: 10px;
+    /* margin-right: 10px; */
   }
   
   nav ul li a {
     text-decoration: none;
-    padding: 8px 16px;
-    background: #ccc;
-    color: #000;
-  } */
-  
+    color: black;
+    padding: 20px 24px;
+    font-size: 22px;
+  }
+  svg.svg-inline--fa {
+    display:none;
+  }
   main {
     display: flex;
     overflow-x: hidden;
@@ -41,7 +47,7 @@ body {
   }
   
   #home-tab {
-    background: #ff6347;
+    background:#feeed3;
   }
   
   #resume-tab {
@@ -61,6 +67,12 @@ body {
   
 
 /* HEADER STYLES */
+header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index:9999;
+}
 .header-container {
     display: flex;
     flex-wrap: wrap;
@@ -69,7 +81,7 @@ body {
     padding: 30px;
 }
 .header-container > * {
-  width: 33.3333333333333%;
+  width: 50%;
 }
 .header-title {
     margin: 0;
@@ -84,8 +96,7 @@ body {
 }
 
 .header-nav ul li {
-    display: inline-block;
-    margin-right: 10px;
+
 }
 
 .header-nav ul li:last-child {
@@ -148,3 +159,7 @@ footer {
     padding: 10px;
   }
   
+/* PORTFOLIO STYLES */
+section.tab {
+    padding-top: 150px;
+}
