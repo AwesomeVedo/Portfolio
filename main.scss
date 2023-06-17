@@ -1,6 +1,28 @@
+/// OUTLINE
+/// ---------------------------------------------
+/// 1. VARIABLES
+/// 2. MIXINS AND FUNCTIONS
+/// 3. BASE STYLES
+/// 4. COMPONENTS
+/// 5. LAYOUT
+/// 6. THEMES OR VARIATIONS
+/// 7. VENDOR-SPECIFIC STYLES
+/// 8. IMPORTS AND MAIN SCSS
+/// ---------------------------------------------
+
+
+// 1. VARIABLES
+// ---------------------------------------------
+// Define variables at the top of your main SCSS file. This includes colors, font stacks, spacing values,
+// and other reusable values.
 $font-stack: 'Quicksand', Arial, Helvetica, sans-serif;
 $primary-font-color: black;
 $container-width: 1200px;
+
+// 2. MIXINS AND FUNCTIONS
+// ---------------------------------------------
+// Place mixins and functions next, below the variables section. This includes animation mixins, utility mixins,
+// and any custom functions you may have.
 
 @mixin font($size, $weight: normal, $color: $primary-font-color) {
   font-size: $size;
@@ -8,7 +30,6 @@ $container-width: 1200px;
   color: $color;
 }
 
-/* ANIMATIONS */
 @mixin fade-in($duration: 0.35s) {
   animation-name: fade-in;
   animation-duration: $duration;
@@ -23,6 +44,7 @@ $container-width: 1200px;
     }
   }
 }
+
 @mixin float-down-animation($duration: 0.5s) {
   animation-name: float-down;
   animation-duration: $duration;
@@ -47,20 +69,22 @@ $container-width: 1200px;
     }
   }
 }
-
-// Usage
 $image-widths: 100, 150, 200, 250, 275, 300, 350, 400, 450, 500;
 @include width-classes('width', $image-widths);
 
-
-
+// 3. BASE STYLES
+// ---------------------------------------------
+// Write base styles that apply to the entire project or multiple components. This includes global resets,
+// typography rules, and default styles for HTML elements.
 
 .align-left {
   float: left;
 }
+
 .align-right {
   float: right;
 }
+
 .align-none {
   float: none;
 }
@@ -80,10 +104,6 @@ img {
 div > p:first-of-type {
   margin-top: 0;
 }
-
-
-/* DEFAULTS */
-
 
 html, body {
   font-family: $font-stack;
@@ -118,11 +138,11 @@ $heading_sizes: (
   }
 }
 
+// 4. COMPONENTS
+// ---------------------------------------------
+// Organize your styles by components. Each component should have its own SCSS file or folder.
+// Group related styles together within each component file.
 
-
-
-
-/* HEADER STYLES */
 header {
   @include float-down-animation;
   position: absolute;
@@ -173,9 +193,6 @@ header {
   }
 }
 
-
-
-/* MAIN CONTENT */
 main {
   display: flex;
   overflow-x: hidden;
@@ -191,7 +208,11 @@ main {
   }
 }
 
-/* TABS */
+// 5. LAYOUT
+// ---------------------------------------------
+// If you have layout-specific styles, such as grid systems or responsive layout rules,
+// create a separate SCSS file for them.
+
 @mixin tabs($id, $color) {
   #{$id} {
     background-color: $color;
@@ -201,7 +222,11 @@ main {
 @include tabs("#resume-tab", #4682b4);
 @include tabs("#portfolio-tab", #2e8b57);
 
-/* FOOTER STYLES */
+// 6. THEMES AND VARIATIONS
+// ---------------------------------------------
+// If your project has multiple themes or variations, consider organizing them into separate SCSS files or folders.
+// This allows for easier switching between different styles.
+
 footer {
   background-color: #f0f0f0;
   padding: 20px;
@@ -216,12 +241,10 @@ footer {
   }
 }
 
-/* PORTFOLIO STYLES */
 section.tab {
   padding-top: 150px;
 }
 
-/* GRID STYLES */
 .container {
   max-width: $container-width;
   margin: 0 auto;
@@ -249,4 +272,19 @@ $grid_gutter: 20px;
   }
 }
 
+// 7. VENDOR-SPECIFIC STYLES
+// ---------------------------------------------
+// If you have vendor-specific styles, such as browser-specific CSS rules or vendor prefixes,
+// organize them in a separate file.
 
+// 8. IMPORTS AND MAIN SCSS
+// ---------------------------------------------
+// Finally, import all the necessary SCSS files into your main SCSS file. This ensures that the styles are compiled properly.
+// The main SCSS file should have minimal code and mainly serve as an entry point for compilation.
+
+// Remember to use meaningful file and folder names to improve readability and maintainability.
+// Additionally, consider using a build tool or task runner to compile and optimize your SCSS code for production.
+
+// Keep in mind that this is just one possible organization scheme, and you can adapt it based on the specific needs and
+// preferences of your project. It's important to choose an organization that suits your project's size, complexity,
+// and team structure.
