@@ -1,0 +1,6 @@
+@mixin tabs($id, $color) {
+    #{$id} {
+      background-color: $color;
+    }
+  }
+ 

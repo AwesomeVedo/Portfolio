@@ -1,30 +1,22 @@
+@use "scss/variables" as vars;
+@use "components/tabs" as tabs;
 /// OUTLINE
 /// ---------------------------------------------
-/// 1. VARIABLES
-/// 2. MIXINS AND FUNCTIONS
-/// 3. BASE STYLES
-/// 4. COMPONENTS
-/// 5. LAYOUT
-/// 6. THEMES OR VARIATIONS
-/// 7. VENDOR-SPECIFIC STYLES
-/// 8. IMPORTS AND MAIN SCSS
+///  MIXINS AND FUNCTIONS
+///  BASE STYLES
+///  COMPONENTS
+///  LAYOUT
+///  THEMES OR VARIATIONS
+///  VENDOR-SPECIFIC STYLES
+///  IMPORTS AND MAIN SCSS
 /// ---------------------------------------------
 
-
-// 1. VARIABLES
-// ---------------------------------------------
-// Define variables at the top of your main SCSS file. This includes colors, font stacks, spacing values,
-// and other reusable values.
-$font-stack: 'Quicksand', Arial, Helvetica, sans-serif;
-$primary-font-color: black;
-$container-width: 1200px;
-
-// 2. MIXINS AND FUNCTIONS
+//  MIXINS AND FUNCTIONS
 // ---------------------------------------------
 // Place mixins and functions next, below the variables section. This includes animation mixins, utility mixins,
 // and any custom functions you may have.
 
-@mixin font($size, $weight: normal, $color: $primary-font-color) {
+@mixin font($size, $weight: normal, $color: vars.$primary-font-color) {
   font-size: $size;
   font-weight: $weight;
   color: $color;
@@ -106,13 +98,13 @@ div > p:first-of-type {
 }
 
 html, body {
-  font-family: $font-stack;
-  color: $primary-font-color;
+  font-family: vars.$font-stack;
+  color: vars.$primary-font-color;
 }
 
 .container {
   @include fade-in(1s);
-  max-width: $container-width;
+  max-width: vars.$container-width;
   margin: 0 auto;
   padding: 30px;
 }
@@ -123,6 +115,7 @@ body {
   overflow-x: hidden;
 }
 
+/* HEADINGS */
 $heading_sizes: (
   h1: 2rem,
   h2: 1.5rem,
@@ -213,14 +206,9 @@ main {
 // If you have layout-specific styles, such as grid systems or responsive layout rules,
 // create a separate SCSS file for them.
 
-@mixin tabs($id, $color) {
-  #{$id} {
-    background-color: $color;
-  }
-}
-@include tabs("#home-tab", #feeed3);
-@include tabs("#resume-tab", #4682b4);
-@include tabs("#portfolio-tab", #2e8b57);
+@include tabs.tabs("#home-tab", #feeed3);
+@include tabs.tabs("#resume-tab", #4682b4);
+@include tabs.tabs("#portfolio-tab", #2e8b57);
 
 // 6. THEMES AND VARIATIONS
 // ---------------------------------------------
@@ -246,7 +234,7 @@ section.tab {
 }
 
 .container {
-  max-width: $container-width;
+  max-width: vars.$container-width;
   margin: 0 auto;
   padding: 30px 50px;
 }
