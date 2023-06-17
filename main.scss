@@ -1,5 +1,6 @@
 @use "scss/variables" as vars;
-@use "components/tabs" as tabs;
+@use "scss/components/tabs" as tabs;
+@use "scss/animations" as animations;
 /// OUTLINE
 /// ---------------------------------------------
 ///  MIXINS AND FUNCTIONS
@@ -16,42 +17,29 @@
 // Place mixins and functions next, below the variables section. This includes animation mixins, utility mixins,
 // and any custom functions you may have.
 
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+  
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+  
+  @return $string;
+}
+
+@mixin css-generator($att: ".", $prop: null, $value: null) {
+  $conv: str-replace($value, " ", "-");
+  #{$att}#{$prop}-#{$conv} {
+    #{$prop}: #{$value};
+  }
+}
+@include css-generator(".", text-align, "center");
+
+
 @mixin font($size, $weight: normal, $color: vars.$primary-font-color) {
   font-size: $size;
   font-weight: $weight;
   color: $color;
-}
-
-@mixin fade-in($duration: 0.35s) {
-  animation-name: fade-in;
-  animation-duration: $duration;
-  animation-fill-mode: both;
-
-  @keyframes fade-in {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-}
-
-@mixin float-down-animation($duration: 0.5s) {
-  animation-name: float-down;
-  animation-duration: $duration;
-  animation-fill-mode: both;
-  
-  @keyframes float-down {
-    0% {
-      transform: translateY(-100%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
 }
 
 @mixin width-classes($prefix, $values) {
@@ -103,7 +91,7 @@ html, body {
 }
 
 .container {
-  @include fade-in(1s);
+  @include animations.fade-in;
   max-width: vars.$container-width;
   margin: 0 auto;
   padding: 30px;
@@ -137,7 +125,7 @@ $heading_sizes: (
 // Group related styles together within each component file.
 
 header {
-  @include float-down-animation;
+  @include animations.fade-in-down;
   position: absolute;
   top: 0;
   width: 100%;
@@ -198,6 +186,10 @@ main {
     height: 100vh;
     font-size: 24px;
     transition: transform 0.3s ease;
+
+    .container {
+      @include animations.fade-in-up;
+    }
   }
 }
 
@@ -243,6 +235,7 @@ $grid_columns: 12;
 $grid_gutter: 20px;
 
 .row {
+  justify-content: center;
   display: flex;
   flex-wrap: wrap;
   margin: -($grid_gutter / 2);
